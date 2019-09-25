@@ -1,0 +1,27 @@
+{
+    "name": "yjtec/laravel-hprose",
+    "description": "yjtec laravel rpc",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "kidkang",
+            "email": "723616880@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0.0",
+        "hprose/hprose": "v2.0.*"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yjtec\\LaravelHprose\\ServiceProvider"
+            ],
+            "aliases": {
+                "LRouter": "Yjtec\\LaravelHprose\\Facades\\Router"
+            }
+        }
+    }
+}
