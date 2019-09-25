@@ -11,6 +11,16 @@
 
 > 创建paramter参数验证文件
 
+## 1.3 php artisan hprose:server
+
+> 启动socket服务命令
+
+## 1.4 php artisan hprose:http_server
+
+> 启动swoole http服务命令
+
+
+
 ## 2配置说明
 
 ## 2.1.env参数说明
