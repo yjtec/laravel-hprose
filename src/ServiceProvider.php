@@ -30,6 +30,8 @@ class ServiceProvider extends LaravelServiceProvider
             $this->commands([
                 Commands\HproseSocket::class,
                 Commands\HproseSwooleHttp::class,
+                Commands\Controller::class,
+                Commands\Parameters::class
             ]);
         }
     }

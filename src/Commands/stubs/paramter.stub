@@ -1,0 +1,26 @@
+<?php
+namespace DummyNamespace;
+
+use Yjtec\LaravelHprose\Parameters\Base;
+
+class DummyClass extends Base
+{
+    /**
+     * 验证规则
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [];
+    }
+    /**
+     * 错误提示信息
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [];
+    }
+}

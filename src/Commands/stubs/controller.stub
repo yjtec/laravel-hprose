@@ -1,0 +1,9 @@
+<?php
+namespace DummyNamespace;
+
+use Yjtec\LaravelHprose\Controller;
+
+class DummyClass extends Controller
+{
+
+}

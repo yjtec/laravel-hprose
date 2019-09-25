@@ -1,13 +1,6 @@
 <?php
 return [
-    'tcp_uris'       => (function () {
-        $uris = [];
-        for ($i = 1; $i <= 10; $i++) {
-            $uri = env(sprintf('HPROSE_TCP_URI%s', $i));
-            $uri and array_push($uris, $uri);
-        }
-        return $uris;
-    })(),
+    'tcp_uris'       => json_decode(env('HPROSE_TCP_URIS','["tcp://0.0.0.0:1314"]')),
     'http_uri'       => env('HPROSE_HTTP_URI', 'http://0.0.0.0:8086'),
     'enable_servers' => array_keys(array_filter([
         'hprose.socket_server'      => env('ENABLE_SOCKET_SERVER', true),
