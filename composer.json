@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.0.0",
-        "yjtec/hprose-swoole":">=1.0.*",
+        "yjtec/hprose-swoole":"1.0.0",
         "hprose/hprose": "v2.0.*"
     },
     "autoload": {
