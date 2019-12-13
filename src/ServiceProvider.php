@@ -88,7 +88,8 @@ class ServiceProvider extends LaravelServiceProvider
             $this->setupRoute();
             // 注册服务
             if (in_array('hprose.socket_server', config('hprose.enable_servers'))) {
-                $this->registerHproseSocketServer();
+                //$this->registerHproseSocketServer();
+                $this->registerHproseSwooleSockerServer();
             }
             if (in_array('hprose.swoole_http_server', config('hprose.enable_servers'))) {
                 $this->registerHproseSwooleHttpServer();
@@ -123,6 +124,24 @@ class ServiceProvider extends LaravelServiceProvider
         }
         $this->publishes([$source => $targetPath]);
     }
+    
+    private function registerHproseSwooleSockerServer(){
+        $this->app->singleton('hprose.socket_server', function ($app) {
+            $uris = config('hprose.tcp_uris');
+            if (!is_array($uris)) {
+                throw new \Exception('配置监听地址格式有误', 500);
+            }
+            $uri = array_shift($uris);
+            $server = new \Yjtec\LaravelHprose\HproseSwooleSocketServer($uri);
+            if(count($uris)){
+                // 添加监听地址
+                array_map(function ($uri) use ($server) {
+                    $server->addListener($uri);
+                }, $uris);
+            }
+            return $server;
+        });
+    }    
     /**
      * 注册 HproseSocketServer
      *
