@@ -6,10 +6,13 @@ use Illuminate\Console\Command;
 class Base extends Command
 {
     public function __construct(){
+
         parent::__construct();
+        app()->register('\Yjtec\LaravelHprose\HproseServiceProvider');
     }
 
     protected function outputInfo($scheme='tcp'){
+
         $this->comment('版本:');
         $this->output->writeln(sprintf(' - laravel=<info>%s</>', app()->version()), $this->parseVerbosity(null));
         $this->output->writeln(sprintf(' - Hprose-php=<info>2.0.0</>'), $this->parseVerbosity(null));
